@@ -94,7 +94,7 @@ export function GeneratorCard({ prefilledContent }: GeneratorCardProps) {
             const detected = normalizeContentType(prefilledContent)
             setContentType(detected)
         }
-    }, [prefilledContent])
+    }, [prefilledContent, content])
 
     // Auto-detect content type
     useEffect(() => {
@@ -360,6 +360,7 @@ export function GeneratorCard({ prefilledContent }: GeneratorCardProps) {
                         {isGenerating ? (
                             <div className="text-text-light/50 dark:text-text-dark/50">Generating...</div>
                         ) : qrDataURL ? (
+                            // eslint-disable-next-line @next/next/no-img-element
                             <img src={qrDataURL} alt="QR Code" className="max-w-full h-auto" />
                         ) : (
                             <div className="text-text-light/50 dark:text-text-dark/50 text-center">

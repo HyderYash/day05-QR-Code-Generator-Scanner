@@ -39,7 +39,6 @@ export async function generateQRCodeDataURL(
   const qrOptions: QRCode.QRCodeToDataURLOptions = {
     errorCorrectionLevel: options.errorCorrectionLevel,
     type: 'image/png',
-    quality: 1,
     margin: options.margin,
     color: {
       dark: options.foregroundColor,

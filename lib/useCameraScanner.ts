@@ -82,7 +82,7 @@ export function useCameraScanner({
         setError(`Camera error: ${errorMessage}`)
       }
     }
-  }, [fps, onScanSuccess, onScanError])
+  }, [fps, onScanSuccess])
 
   const stopScanning = useCallback(async () => {
     if (scannerRef.current) {
