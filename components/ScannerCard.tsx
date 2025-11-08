@@ -94,9 +94,23 @@ export function ScannerCard() {
     const file = event.target.files?.[0]
     if (!file) return
 
+    // Validate file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error('Image file is too large. Please use an image smaller than 10MB.')
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+      return
+    }
+
     setIsProcessing(true)
     try {
       const decodedText = await parseQRCodeFromImage(file)
+      
+      if (!decodedText || decodedText.trim() === '') {
+        throw new Error('QR code decoded but content is empty')
+      }
+
       const contentType = normalizeContentType(decodedText)
       setScanResult({ content: decodedText, contentType })
 
@@ -107,9 +121,11 @@ export function ScannerCard() {
         content: decodedText,
       })
 
-      toast.success('QR code decoded from image!')
+      toast.success('QR code decoded successfully!')
     } catch (error: any) {
-      toast.error(error.message || 'Failed to decode QR code from image')
+      console.error('QR decode error:', error)
+      const errorMessage = error?.message || 'Failed to decode QR code from image'
+      toast.error(errorMessage)
     } finally {
       setIsProcessing(false)
       if (fileInputRef.current) {

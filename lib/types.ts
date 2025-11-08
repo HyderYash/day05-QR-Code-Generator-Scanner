@@ -33,6 +33,8 @@ export interface QRGeneratorOptions {
   backgroundColor: string
   includeLogo?: boolean
   logoUrl?: string
+  version?: number
+  outputFormat?: 'png' | 'svg' | 'jpeg'
 }
 
 export interface VCARDData {

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { GeneratorCard } from '@/components/GeneratorCard'
-import { ScannerCard } from '@/components/ScannerCard'
 import { QrCode } from 'lucide-react'
 
 export default function Home() {
@@ -28,7 +27,7 @@ export default function Home() {
                   QR Studio 🍏
                 </h1>
                 <p className="text-xs text-text-light/60 dark:text-text-dark/60 font-medium mt-0.5">
-                  QR Generator & Scanner — Day 5 of #100Days100Projects
+                  QR Code Generator — Day 5 of #100Days100Projects
                 </p>
               </div>
             </motion.div>
@@ -46,24 +45,15 @@ export default function Home() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="space-y-10">
-          {/* Generator and Scanner */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              <GeneratorCard />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              <ScannerCard />
-            </motion.div>
-          </div>
-
+          {/* Generator */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="max-w-4xl mx-auto"
+          >
+            <GeneratorCard />
+          </motion.div>
         </div>
       </main>
 
