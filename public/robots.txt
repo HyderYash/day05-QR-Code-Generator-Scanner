@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qr-studio.vercel.app/sitemap.xml
+
