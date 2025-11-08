@@ -9,9 +9,6 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: true,
   swcMinify: true,
-  experimental: {
-    optimizeCss: true,
-  },
   headers: async () => {
     return [
       {
